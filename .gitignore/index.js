@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+mconst Discord = require('discord.js');
 const client = new Discord.Client();
 const monnaie = require('./money.json');
 const fs = require('fs')
@@ -64,7 +64,7 @@ if (minutes === msgSup)
 okd = okd + 1;
 }}})
 client.on("guildMemberAdd", member =>{
-  client.channels.cache.get('691691656986099845').send(msg.author.username" a rejoin le serveur" + "👋")
+  client.channels.cache.get('691691656986099845').send(member.username" a rejoin le serveur" + "👋")
 })
 client.on('message', msg => {
  if (!monnaie[msg.author.id])
