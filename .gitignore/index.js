@@ -1,4 +1,4 @@
-bmconst Discord = require('discord.js');
+const Discord = require('discord.js');
 const client = new Discord.Client();
 const monnaie = require('./money.json');
 const fs = require('fs')
