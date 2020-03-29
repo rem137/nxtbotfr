@@ -152,7 +152,10 @@ var int = 0;
     //msg.reply(msgCompt)
   }
   if (msg.content.includes("news")) {
-    msg.reply(msg.author.id)
+    if (msg.author.id === 558907216321576971)
+    {
+      msg.reply("owner")
+    }
   }
   if (msg.content.includes("okd")) {
     //msg.reply(okd)
