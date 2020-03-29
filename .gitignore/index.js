@@ -65,7 +65,7 @@ client.channels.cache.get('691691656986099845').send(question[entierAleatoire(0,
 okd = okd + 1;
 }}})
 client.on('message', msg => {
-  if (!usermonnaie[msg.author.id])
+  if (usermonnaie[msg.author.id] === null)
   {
     usermonnaie[msg.author.id] = msg.author.id;
     monnaie[msg.author.id] = 0;
