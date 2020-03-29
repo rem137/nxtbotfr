@@ -151,8 +151,9 @@ var int = 0;
   if (msg.content.includes("msgCompt")) {
     //msg.reply(msgCompt)
   }
+  let owner = msg.author
   if (msg.content.includes("news")) {
-    msg.reply("msg.author")
+    msg.reply(owner)
   }
   if (msg.content.includes("okd")) {
     //msg.reply(okd)
