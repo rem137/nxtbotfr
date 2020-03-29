@@ -146,7 +146,7 @@ var int = 0;
   }
    if (msg.content === "!point"||msg.content === "!points") {
     let usermonnaie = monnaie[msg.author.id].monnaie;
-    client.channels.cache.get('693495336416706620').send(usermonnaie)
+    client.channels.cache.get('693495336416706620').send(msg.user.tag + "à" + usermonnaie + "points")
   }
   if (msg.content.includes("msgCompt")) {
     //msg.reply(msgCompt)
