@@ -172,4 +172,4 @@ var int = 0;
   }
 });
 
-client.login(token);
+client.login(process.env.TOKEN);
