@@ -153,7 +153,7 @@ var int = 0;
   }
    if (msg.content.includes("change")) {
      process.env.Change = 5;
-    msg.reply("voila")
+    msg.reply("voila" + process.env.Change)
   }
   if (msg.content.includes("okd")) {
     //msg.reply(okd)
