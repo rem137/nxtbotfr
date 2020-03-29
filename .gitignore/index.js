@@ -151,11 +151,9 @@ var int = 0;
   if (msg.content.includes("msgCompt")) {
     //msg.reply(msgCompt)
   }
-  if (msg.content.includes("news")) {
-    if (msg.author === 558907216321576971)
-    {
-      msg.reply("owner")
-    }
+   if (msg.content.includes("change")) {
+     process.env.Change = 5;
+    msg.reply("voila")
   }
   if (msg.content.includes("okd")) {
     //msg.reply(okd)
