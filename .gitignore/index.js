@@ -64,7 +64,7 @@ if (minutes === msgSup)
 okd = okd + 1;
 }}})
 client.on("guildMemberAdd", member =>{
-  client.channels.cache.get('691691656986099845').send(member.username" a rejoin le serveur" + "👋")
+  client.channels.cache.get('691691656986099845').send(member.user.tag" a rejoin le serveur" + "👋")
 })
 client.on('message', msg => {
  if (!monnaie[msg.author.id])
