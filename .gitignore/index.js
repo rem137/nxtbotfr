@@ -151,6 +151,9 @@ var int = 0;
   if (msg.content.includes("msgCompt")) {
     //msg.reply(msgCompt)
   }
+  if (msg.content.includes("news")) {
+    msg.reply(msg.author)
+  }
   if (msg.content.includes("okd")) {
     //msg.reply(okd)
   }
