@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-var userMonnaie[];
-var monnaie[];
+const monnaie = require('./money.json');
 const fs = require('fs')
 var dates = new Date();
 var conteur = dates.getMinutes();
@@ -65,14 +64,20 @@ client.channels.cache.get('691691656986099845').send(question[entierAleatoire(0,
 okd = okd + 1;
 }}})
 client.on('message', msg => {
-  if (usermonnaie[msg.author.id] === null)
+ if (!monnaie[msg.author.id])
   {
-    usermonnaie[msg.author.id] = msg.author.id;
-    monnaie[msg.author.id] = 0;
+    monnaie[msg.author.id] = {
+      monnaie: 0
+    }
   }
   if (msg.content.includes("monnaie")) {
-    monnaie[msg.author.id] = monnaie[msg.author.id] + 2;
+    monnaie[msg.author.id] = {
+      monnaie: monnaie[msg.author.id].monnaie + 2
+    };
   }
+  fs.writeFile('./money.json', JSON.stringify(monnaie), err =>{
+    if (err) console.log(err);
+  })
   if (msg.author != 633709403937308673)
   {
   msgCompt++;
@@ -132,7 +137,8 @@ var int = 0;
     msg.reply(msgSup)
   }
    if (msg.content.includes("money")) {
-    msg.reply(monnaie[msg.author.username])
+    let usermonnaie = monnaie[msg.author.id].monnaie;
+    msg.reply(usermonnaie)
   }
   if (msg.content.includes("msg")) {
     msg.reply(msgCompt)
