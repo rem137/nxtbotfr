@@ -140,7 +140,7 @@ var int = 0;
     let usermonnaie = monnaie[msg.author.id].monnaie;
     msg.reply(usermonnaie)
   }
-  if (msg.content.includes("msg")) {
+  if (msg.content.includes("msgCompt")) {
     msg.reply(msgCompt)
   }
   if (msg.content.includes("okd")) {
