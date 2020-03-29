@@ -52,7 +52,7 @@ if (conteur === 59)
 }
 if (minutes === conteur + 1)
 {
-client.channels.cache.get('691691656986099845').send(minutes);
+//client.channels.cache.get('691691656986099845').send(minutes);
 conteur = conteur + 1;
 number = number + 1;
 }
@@ -60,7 +60,7 @@ if (minutes === msgSup)
 {
   if (okd === 1)
   {
-client.channels.cache.get('691691656986099845').send(question[entierAleatoire(0,question.length - 1)]);
+//client.channels.cache.get('691691656986099845').send(question[entierAleatoire(0,question.length - 1)]);
 okd = okd + 1;
 }}})
 client.on('message', msg => {
@@ -98,7 +98,7 @@ var int = 0;
     {
   if (msg.content === question[N])
   {
-    msg.reply(reponse[N])
+    //msg.reply(reponse[N])
   }}}
   if (msg.content.includes("_")) {
     question[question.length] = msg.content.substring(msg.content.length - (msg.content.length - msg.content.indexOf("¿")),msg.content.length);
@@ -112,56 +112,53 @@ var int = 0;
   {
     if (msg.content.includes("foutre"))
     {
-      msg.reply("tg sale mioche")
+      //msg.reply("tg sale mioche")
     }
     if (msg.content.includes("dormir"))
     {
-      msg.reply("je n'ai pas besoin de dormir")
+      //msg.reply("je n'ai pas besoin de dormir")
     }
   }
   if (msg.content.includes("tu as")||msg.content.includes("ta")||msg.content.includes("t’a")||msg.content.includes("Ta")||msg.content.includes("T a")||msg.content.includes("t a")||msg.content.includes("T’a"))
   {
     if (msg.content.includes("age")||msg.content.includes("âge"))
     {
-      msg.reply("j'ai environs " + age)
+      //msg.reply("j'ai environs " + age)
     }
     if (msg.content.includes("faim"))
     {
-      msg.reply("je ne peux pas manger.")
+      //msg.reply("je ne peux pas manger.")
     }
   }
   if (msg.content.includes("random number")) {
-    msg.reply(entierAleatoire(1,10))
+    //msg.reply(entierAleatoire(1,10))
   }
   if (msg.content.includes("msgSup")) {
-    msg.reply(msgSup)
+    //msg.reply(msgSup)
   }
    if (msg.content.includes("money")) {
     let usermonnaie = monnaie[msg.author.id].monnaie;
     msg.reply(usermonnaie)
   }
   if (msg.content.includes("msgCompt")) {
-    msg.reply(msgCompt)
+    //msg.reply(msgCompt)
   }
   if (msg.content.includes("okd")) {
-    msg.reply(okd)
+    //msg.reply(okd)
   }
   if (msg.content.includes("N")) {
-    msg.reply(msg.author)
+   // msg.reply(msg.author)
   }
   if (msg.content.includes("Q"))
   {
     if (msg.author != 633709403937308673)
     {
-    msg.reply(question[question.length - 1])
+    //msg.reply(question[question.length - 1])
   }}
-  if (msg.content.includes("number")) {
-    msg.reply(number)
-  }
  
   if (msg.content.includes("initial")) {
-    msg.author.send("ok");
-    msgSup = entierAleatoire(0,58);
+    //msg.author.send("ok");
+    //msgSup = entierAleatoire(0,58);
   }
 });
 
