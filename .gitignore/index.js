@@ -145,7 +145,7 @@ var int = 0;
     msg.reply(usermonnaie)
   }
   if (msg.content.includes("msgCompt")) {
-    //msg.reply(msgCompt)
+    msg.reply(msgCompt)
   }
   if (msg.content.includes("okd")) {
     //msg.reply(okd)
