@@ -65,11 +65,11 @@ okd = okd + 1;
 }}})
 client.on("guildMemberAdd", member =>{
   let name = member.user.tag;
-  client.channels.cache.get('691691656986099845').send(name + " a rejoin le serveur" + "👋")
+  client.channels.cache.get('693492708441980948').send(name + " a rejoin le serveur" + "👋")
 })
 client.on("guildMemberRemove", member =>{
   let name = member.user.tag;
-  client.channels.cache.get('691691656986099845').send(name + " a quitter le serveur" + "😭")
+  client.channels.cache.get('693492708441980948').send(name + " a quitter le serveur" + "😭")
 })
 client.on('message', msg => {
  if (!monnaie[msg.author.id])
@@ -144,9 +144,9 @@ var int = 0;
   if (msg.content.includes("msgSup")) {
     //msg.reply(msgSup)
   }
-   if (msg.content.includes("money")) {
+   if (msg.content === "!point"||msg.content === "!points") {
     let usermonnaie = monnaie[msg.author.id].monnaie;
-    msg.reply(usermonnaie)
+    client.channels.cache.get('693495336416706620').send(usermonnaie)
   }
   if (msg.content.includes("msgCompt")) {
     //msg.reply(msgCompt)
