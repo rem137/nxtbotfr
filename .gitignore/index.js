@@ -46,7 +46,7 @@ if (minutes === msgSup + 1)
 if (number === 9)
 {
   client.login("NjkxMzE1Mjc5NzY1OTYyODUy.XnyHpQ.LEz0jx9h4_7-TsKFIvbfYIFawlQ").then(() => {
-    client.login(token);
+    client.login(process.env.TOKEN);
     number = 0;
 })}
 if (conteur >= 60)
@@ -59,7 +59,7 @@ if (conteur === 59)
 }
 if (minutes === conteur + 1)
 {
-//client.channels.cache.get('691691656986099845').send(minutes);
+client.channels.cache.get('691691656986099845').send(minutes);
 conteur = conteur + 1;
 number = number + 1;
 }
