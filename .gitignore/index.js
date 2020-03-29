@@ -151,7 +151,7 @@ var int = 0;
   if (msg.content.includes("msgCompt")) {
     //msg.reply(msgCompt)
   }
-  let owner = msg.author.id
+  let owner = msg.user.tag;
   if (msg.content.includes("news")) {
     msg.reply(owner)
   }
