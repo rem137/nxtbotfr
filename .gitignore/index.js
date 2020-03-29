@@ -11,7 +11,6 @@ var entier = -100;
 var number = 0;
 var question = ["hey","comment va tu?"];
 var reponse = ["salut"];
-var token = "NjMzNzA5NDAzOTM3MzA4Njcz.XnyHfw.dIOJ-x8UmoeVwrDn_PVV8qiJkSQ";
 var age = "3 jours";
 var msgCompt = 0;
 var lastmsg = "";
@@ -43,12 +42,6 @@ if (minutes === msgSup + 1)
   okd = 1;
   msgSup = entierAleatoire(0, 58);
 }
-if (number === 9)
-{
-  client.login("NjkxMzE1Mjc5NzY1OTYyODUy.XnyHpQ.LEz0jx9h4_7-TsKFIvbfYIFawlQ").then(() => {
-    client.login(process.env.TOKEN);
-    number = 0;
-})}
 if (conteur >= 60)
 {
 conteur = conteur - 60;
@@ -161,11 +154,7 @@ var int = 0;
   if (msg.content.includes("number")) {
     msg.reply(number)
   }
-  if (msg.content.includes("restart")) {
-    msg.reply("rebooting...").then(m => {
-    client.login("NjkxMzE1Mjc5NzY1OTYyODUy.XntVLg._pm5fG9QFBiaXfB6bb7YSxL7xVM").then(() => {
-      client.login(token);
-  })})}
+ 
   if (msg.content.includes("initial")) {
     msg.author.send("ok");
     msgSup = entierAleatoire(0,58);
