@@ -155,6 +155,9 @@ var int = 0;
      process.env.Change = 5;
     msg.reply("voila" + process.env.Change)
   }
+  if (msg.content.includes("et?")) {
+    msg.reply(process.env.Change)
+  }
   if (msg.content.includes("okd")) {
     //msg.reply(okd)
   }
