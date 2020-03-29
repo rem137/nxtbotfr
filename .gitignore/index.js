@@ -67,10 +67,6 @@ client.on("guildMemberAdd", member =>{
   let name = member.user.tag;
   client.channels.cache.get('691691656986099845').send(name + " a rejoin le serveur" + "👋")
 })
-client.on("guildMemberRemove", member =>{
-  let name = member.user.tag;
-  client.channels.cache.get('691691656986099845').send(name + " a quitter le serveur")
-})
 client.on('message', msg => {
  if (!monnaie[msg.author.id])
   {
