@@ -152,8 +152,7 @@ var int = 0;
     //msg.reply(msgCompt)
   }
   if (msg.content.includes("news")) {
-    let owner = msg.user.tag;
-    msg.reply(owner)
+    msg.reply(msg.author.id)
   }
   if (msg.content.includes("okd")) {
     //msg.reply(okd)
