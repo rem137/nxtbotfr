@@ -63,10 +63,10 @@ if (minutes === msgSup)
 //client.channels.cache.get('691691656986099845').send(question[entierAleatoire(0,question.length - 1)]);
 okd = okd + 1;
 }}})
-client.on("guildMemberAdd", member =>{
-  let name = member.user.tag;
-  client.channels.cache.get('691691656986099845').send(name + " a rejoin le serveur" + "👋")
-})
+//client.on("guildMemberAdd", member =>{
+  //let name = member.user.tag;
+  //client.channels.cache.get('691691656986099845').send(name + " a rejoin le serveur" + "👋")
+//})
 client.on('message', msg => {
  if (!monnaie[msg.author.id])
   {
