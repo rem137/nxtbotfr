@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const monnaie = require('./money.json');
+const podium = require('./podium.json');
 const fs = require('fs')
 var dates = new Date();
 var conteur = dates.getMinutes();
@@ -14,6 +15,9 @@ var reponse = ["salut"];
 var age = "3 jours";
 var msgCompt = 0;
 var lastmsg = "";
+var podium1 = podium["podium1"].name;
+var podium2 = podium["podium2"].name;
+var podium3 = podium["podium3"].name;
 var permission = false;
 msgSup = entierAleatoire(0,58);
 client.on('ready', () => {
@@ -33,9 +37,22 @@ var heure = date.getHours();
 var minutes = date.getMinutes();
 if (permission === true)
 {
-  question[question.length] = lastmsg;
+ question[question.length] = lastmsg;
   reponse[reponse.length] = lastmsg;
   permission = false;
+}
+if (heure === 25)
+{
+  if (minutes === 1)
+  {
+    let pod1 = monnaie["podium1"].name;
+    let pod2 = monnaie["podium2"].name;
+    let pod3 = monnaie["podium3"].name;
+    client.channels.cache.get('693827689894641674').send("podium du jour")
+    client.channels.cache.get('693827689894641674').send(podium1 + " est premier🥇 avec " + monnaie[podium1].monnaie + " points")
+    client.channels.cache.get('693827689894641674').send(podium2 + " est deuxieme🥈 avec " + monnaie[podium2].monnaie + " points")
+    client.channels.cache.get('693827689894641674').send(podium3 + " est troisieme🥉 avec " + monnaie[podium3].monnaie + " points")
+  }
 }
 if (minutes === msgSup + 1)
  {
@@ -72,16 +89,161 @@ client.on("guildMemberRemove", member =>{
   client.channels.cache.get('693492708441980948').send(name + " a quitter le serveur" + "😭")
 })
 client.on('message', msg => {
- if (!monnaie[msg.author.id])
+ if (!monnaie[msg.author.tag])
   {
-    monnaie[msg.author.id] = {
+    monnaie[msg.author.tag] = {
       monnaie: 0
     }
   }
-  if (msg.content.includes("monnaie")) {
-    monnaie[msg.author.id] = {
-      monnaie: monnaie[msg.author.id].monnaie + 2
+  if (msg.content === "!monnaie+2") {
+    monnaie[msg.author.tag] = {
+      monnaie: monnaie[msg.author.tag].monnaie + 2
+      };
+      if (monnaie[msg.author.tag].monnaie > monnaie[podium["podium3"].name].monnaie)
+      {
+      if (monnaie[msg.author.tag].monnaie > monnaie[podium["podium2"].name].monnaie)
+      {
+        if (monnaie[msg.author.tag].monnaie > monnaie[podium["podium1"].name].monnaie)
+        {
+         if (podium1 === msg.author.tag)
+         {
+
+         }
+         else if (podium2 === msg.author.tag) {
+           podium["podium2"] = {
+             name: podium["podium1"].name
+           };
+           let utilisateur = msg.author.tag;
+           podium["podium1"] = {
+             name: utilisateur
+           };
+           fs.writeFile('./podium.json', JSON.stringify(podium), err =>{
+             if (err) console.log(err);
+           })
+           podium1 = podium["podium1"].name;
+           podium2 = podium["podium2"].name;
+           podium3 = podium["podium3"].name;
+           client.channels.cache.get('693827689894641674').send("nouveau podium")
+           client.channels.cache.get('693827689894641674').send(podium1 + " est premier🥇 avec " + monnaie[podium1].monnaie + " points")
+           client.channels.cache.get('693827689894641674').send(podium2 + " est deuxieme🥈 avec " + monnaie[podium2].monnaie + " points")
+           client.channels.cache.get('693827689894641674').send(podium3 + " est troisieme🥉 avec " + monnaie[podium3].monnaie + " points")
+         }
+         else if (podium3 === msg.author.tag) {
+           podium["podium3"] = {
+             name: podium["podium2"].name
+           };
+           podium["podium2"] = {
+             name: podium["podium1"].name
+           };
+           let utilisateur = msg.author.tag;
+           podium["podium1"] = {
+             name: utilisateur
+           };
+           fs.writeFile('./podium.json', JSON.stringify(podium), err =>{
+             if (err) console.log(err);
+           })
+           podium1 = podium["podium1"].name;
+           podium2 = podium["podium2"].name;
+           podium3 = podium["podium3"].name;
+           client.channels.cache.get('693827689894641674').send("nouveau podium")
+           client.channels.cache.get('693827689894641674').send(podium1 + " est premier🥇 avec " + monnaie[podium1].monnaie + " points")
+           client.channels.cache.get('693827689894641674').send(podium2 + " est deuxieme🥈 avec " + monnaie[podium2].monnaie + " points")
+           client.channels.cache.get('693827689894641674').send(podium3 + " est troisieme🥉 avec " + monnaie[podium3].monnaie + " points")
+         }
+         else {
+           podium["podium3"] = {
+             name: podium["podium2"].name
+           };
+           podium["podium2"] = {
+             name: podium["podium1"].name
+           };
+           let utilisateur = msg.author.tag;
+           podium["podium1"] = {
+             name: utilisateur
+           };
+          fs.writeFile('./podium.json', JSON.stringify(podium), err =>{
+            if (err) console.log(err);
+          })
+          podium1 = podium["podium1"].name;
+          podium2 = podium["podium2"].name;
+          podium3 = podium["podium3"].name;
+          client.channels.cache.get('693827689894641674').send("nouveau podium")
+          client.channels.cache.get('693827689894641674').send(podium1 + " est premier🥇 avec " + monnaie[podium1].monnaie + " points")
+          client.channels.cache.get('693827689894641674').send(podium2 + " est deuxieme🥈 avec " + monnaie[podium2].monnaie + " points")
+          client.channels.cache.get('693827689894641674').send(podium3 + " est troisieme🥉 avec " + monnaie[podium3].monnaie + " points")
+        }
+        }
+        else {
+          if (podium2 === msg.author.tag)
+          {
+
+          }
+          else if (podium3 === msg.author.tag) {
+            podium["podium3"] = {
+              name: podium["podium2"].name
+            };
+            let utilisateur = msg.author.tag;
+            podium["podium2"] = {
+              name: utilisateur
+            };
+            fs.writeFile('./podium.json', JSON.stringify(podium), err =>{
+              if (err) console.log(err);
+            })
+            podium1 = podium["podium1"].name;
+            podium2 = podium["podium2"].name;
+            podium3 = podium["podium3"].name;
+            client.channels.cache.get('693827689894641674').send("nouveau podium")
+            client.channels.cache.get('693827689894641674').send(podium1 + " est premier🥇 avec " + monnaie[podium1].monnaie + " points")
+            client.channels.cache.get('693827689894641674').send(podium2 + " est deuxieme🥈 avec " + monnaie[podium2].monnaie + " points")
+            client.channels.cache.get('693827689894641674').send(podium3 + " est troisieme🥉 avec " + monnaie[podium3].monnaie + " points")
+          }
+          else {
+            podium["podium3"] = {
+              name: podium["podium2"].name
+            };
+            let utilisateur = msg.author.tag;
+            podium["podium2"] = {
+              name: utilisateur
+            };
+          fs.writeFile('./podium.json', JSON.stringify(podium), err =>{
+            if (err) console.log(err);
+          })
+          podium1 = podium["podium1"].name;
+          podium2 = podium["podium2"].name;
+          podium3 = podium["podium3"].name;
+          client.channels.cache.get('693827689894641674').send("nouveau podium")
+          client.channels.cache.get('693827689894641674').send(podium1 + " est premier🥇 avec " + monnaie[podium1].monnaie + " points")
+          client.channels.cache.get('693827689894641674').send(podium2 + " est deuxieme🥈 avec " + monnaie[podium2].monnaie + " points")
+          client.channels.cache.get('693827689894641674').send(podium3 + " est troisieme🥉 avec " + monnaie[podium3].monnaie + " points")
+        }
+        }
+
+      }
+else {
+  if (podium3 === msg.author.tag)
+  {
+
+  }
+  else {
+    let utilisateur = msg.author.tag;
+    podium["podium3"] = {
+      name: utilisateur
     };
+  fs.writeFile('./podium.json', JSON.stringify(podium), err =>{
+    if (err) console.log(err);
+  })
+  podium1 = podium["podium1"].name;
+  podium2 = podium["podium2"].name;
+  podium3 = podium["podium3"].name;
+  client.channels.cache.get('693827689894641674').send("nouveau podium")
+  client.channels.cache.get('693827689894641674').send(podium1 + " est premier🥇 avec " + monnaie[podium1].monnaie + " points")
+  client.channels.cache.get('693827689894641674').send(podium2 + " est deuxieme🥈 avec " + monnaie[podium2].monnaie + " points")
+  client.channels.cache.get('693827689894641674').send(podium3 + " est troisieme🥉 avec " + monnaie[podium3].monnaie + " points")
+}
+}
+
+      }
+
   }
   fs.writeFile('./money.json', JSON.stringify(monnaie), err =>{
     if (err) console.log(err);
@@ -145,8 +307,8 @@ var int = 0;
     //msg.reply(msgSup)
   }
    if (msg.content === "!point"||msg.content === "!points") {
-    let usermonnaie = monnaie[msg.author.id].monnaie;
-    msg.reply("tu à" + usermonnaie + "points")
+    let usermonnaie = monnaie[msg.author.tag].monnaie;
+    msg.reply("tu à " + usermonnaie + " points")
   }
   if (msg.content.includes("msgCompt")) {
     //msg.reply(msgCompt)
@@ -154,8 +316,23 @@ var int = 0;
   if (msg.content.includes("okd")) {
     //msg.reply(okd)
   }
-  if (msg.content.includes("N")) {
-   // msg.reply(msg.author)
+  if (msg.content.includes("podium1")) {
+    msg.reply(podium1)
+  }
+  if (msg.content.includes("podium2")) {
+    msg.reply(podium2)
+  }
+  if (msg.content.includes("podium3")) {
+    msg.reply(podium3)
+  }
+  if (msg.content.includes("!podium")) {
+    podium1 = podium["podium1"].name;
+    podium2 = podium["podium2"].name;
+    podium3 = podium["podium3"].name;
+           client.channels.cache.get('693827689894641674').send("nouveau podium")
+           client.channels.cache.get('693827689894641674').send(podium1 + " est premier🥇 avec " + monnaie[podium1].monnaie + " points")
+           client.channels.cache.get('693827689894641674').send(podium2 + " est deuxieme🥈 avec " + monnaie[podium2].monnaie + " points")
+           client.channels.cache.get('693827689894641674').send(podium3 + " est troisieme🥉 avec " + monnaie[podium3].monnaie + " points")
   }
   if (msg.content.includes("Q"))
   {
@@ -163,11 +340,10 @@ var int = 0;
     {
     //msg.reply(question[question.length - 1])
   }}
- 
+
   if (msg.content.includes("initial")) {
     //msg.author.send("ok");
     //msgSup = entierAleatoire(0,58);
   }
 });
-
 client.login(process.env.TOKEN);
