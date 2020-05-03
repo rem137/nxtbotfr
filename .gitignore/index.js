@@ -8,7 +8,7 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
   host: "mysql-uneheureunedate.alwaysdata.net",
   user: "205574",
-  password: "Djubia+2a",
+  password: "process.env.MDP",
   database: "uneheureunedate_jeuinteractif"
 });
 var dates = new Date();
